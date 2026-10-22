@@ -1,0 +1,6 @@
+{
+  "name": "Haddi Furnitures – Luxury Showroom Chiniot",
+  "description": "Crafted for Comfort. Designed for Living. Premium handcrafted furniture showroom located on Chiniot Road, Chiniot, Punjab, Pakistan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
