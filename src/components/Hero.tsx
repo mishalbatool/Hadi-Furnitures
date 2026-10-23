@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { ArrowRight, MessageCircle, Star, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import heroBedroomImg from '../assets/images/hero_luxury_bedroom_1792679274126.jpg';
 import { BUSINESS_INFO, buildWhatsAppLink } from '../data/furnitureData';
 
@@ -38,19 +38,6 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 sm:py-32 w-full flex flex-col justify-center">
         <div className="max-w-3xl">
-          {/* Subtle Location & Heritage Eyebrow */}
-          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#E8DFD0] tracking-wide mb-4 sm:mb-6">
-            <span className="text-[#C5A15B] font-semibold tracking-wider uppercase text-xs">Chiniot Showroom</span>
-            <span className="text-[#C5A15B]/60" aria-hidden="true">·</span>
-            <span className="text-[#E8DFD0]/90">Punjab, Pakistan</span>
-            <span className="text-[#C5A15B]/60" aria-hidden="true">·</span>
-            <span className="text-[#C5A15B] flex items-center gap-1">
-              <Star className="w-3.5 h-3.5 fill-[#C5A15B] text-[#C5A15B]" />
-              <span className="font-semibold">{BUSINESS_INFO.googleRating}</span>
-              <span className="text-[#E8DFD0]/70 text-xs">({BUSINESS_INFO.reviewCount} Reviews)</span>
-            </span>
-          </div>
-
           {/* Main Headline */}
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#F8F4EA] leading-[1.12] mb-6 drop-shadow-sm text-balance">
             Crafted for Comfort.{' '}
