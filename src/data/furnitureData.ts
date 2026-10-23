@@ -14,13 +14,13 @@ import bedsideTablesImg from '../assets/images/product_bedside_tables_1792679300
 import showroomInteriorImg from '../assets/images/about_chiniot_showroom_1792679275976.jpg';
 
 export const BUSINESS_INFO = {
-  name: 'Haddi Furnitures',
+  name: 'Hadi Furnitures',
   phoneDisplay: 'Call Showroom',
   phoneHref: 'tel:+923007935902',
   whatsappBase: 'https://wa.me/923007935902',
-  defaultWhatsappMessage: 'Hello Haddi Furnitures, I would like to inquire about your furniture collection.',
+  defaultWhatsappMessage: 'Hello Hadi Furnitures, I would like to inquire about your furniture collection.',
   address: 'Chiniot Road, Chiniot, Punjab, Pakistan',
-  mapsSearchUrl: 'https://www.google.com/maps/search/?api=1&query=Haddi+Furnitures+Chiniot+Road+Chiniot+Punjab+Pakistan',
+  mapsSearchUrl: 'https://www.google.com/maps/search/?api=1&query=Hadi+Furnitures+Chiniot+Road+Chiniot+Punjab+Pakistan',
   googleRating: '4.8',
   reviewCount: 18,
   type: 'Furniture Showroom',
@@ -77,6 +77,7 @@ export interface ProductItem {
   categoryLabel: string;
   description: string;
   image: string;
+  keywords: string[];
   dimensionsNote?: string;
 }
 
@@ -88,6 +89,7 @@ export const FEATURED_PRODUCTS: ProductItem[] = [
     categoryLabel: 'Beds & Frames',
     description: 'Minimalist solid wood frame with geometric relief headboard and natural warm finish.',
     image: bedFramesImg,
+    keywords: ['bed', 'king', 'queen', 'frame', 'wooden', 'timber', 'headboard', 'modern', 'minimalist', 'sleep', 'bedroom'],
   },
   {
     id: 'prod-classic-carved-bed',
@@ -96,6 +98,7 @@ export const FEATURED_PRODUCTS: ProductItem[] = [
     categoryLabel: 'Beds & Frames',
     description: 'Heritage hand-carved floral filigree headboard showcasing traditional Chiniot woodwork finesse.',
     image: carvedBedImg,
+    keywords: ['carved', 'chanioti', 'chiniot', 'floral', 'heritage', 'handcarved', 'classic', 'sheesham', 'bed', 'wooden', 'woodwork', 'traditional'],
   },
   {
     id: 'prod-luxury-bedroom-set',
@@ -104,6 +107,7 @@ export const FEATURED_PRODUCTS: ProductItem[] = [
     categoryLabel: 'Bedroom Furniture',
     description: 'Cohesive master suite ensemble featuring a grand wooden bed, matching side tables, and dresser.',
     image: heroBedroomImg,
+    keywords: ['set', 'suite', 'bedroom', 'master', 'luxury', 'side table', 'dresser', 'complete', 'ensemble'],
   },
   {
     id: 'prod-contemporary-sofa',
@@ -112,6 +116,7 @@ export const FEATURED_PRODUCTS: ProductItem[] = [
     categoryLabel: 'Living Room',
     description: 'Deep cushioned 3-seater sofa combining forest green velvet accents with solid wood footing.',
     image: sofasLivingImg,
+    keywords: ['sofa', 'couch', 'living', 'green', 'velvet', 'cushion', 'lounge', 'seating', 'contemporary', '3 seater'],
   },
   {
     id: 'prod-wooden-wardrobe',
@@ -120,6 +125,7 @@ export const FEATURED_PRODUCTS: ProductItem[] = [
     categoryLabel: 'Wardrobes & Storage',
     description: 'Spacious multi-door wardrobe featuring fluted timber panels and antique brass hardware.',
     image: wardrobesStorageImg,
+    keywords: ['wardrobe', 'closet', 'cupboard', 'storage', 'cabinet', 'armoire', 'fluted', 'brass', 'clothes', 'drawers'],
   },
   {
     id: 'prod-bedside-tables',
@@ -128,6 +134,7 @@ export const FEATURED_PRODUCTS: ProductItem[] = [
     categoryLabel: 'Bedroom Furniture',
     description: 'Dual-drawer nightstands crafted in dark walnut tone with sleek brass bar pulls.',
     image: bedsideTablesImg,
+    keywords: ['bedside', 'nightstand', 'tables', 'drawer', 'walnut', 'brass', 'lamp', 'side table', 'bedroom'],
   },
   {
     id: 'prod-dressing-table',
@@ -136,6 +143,7 @@ export const FEATURED_PRODUCTS: ProductItem[] = [
     categoryLabel: 'Bedroom Furniture',
     description: 'Graceful vanity table with curved cabriole legs, brass-framed mirror, and matching vanity stool.',
     image: dressingTableImg,
+    keywords: ['dressing', 'vanity', 'mirror', 'stool', 'dresser', 'makeup', 'drawers', 'bedroom', 'table'],
   },
   {
     id: 'prod-living-room-set',
@@ -144,6 +152,7 @@ export const FEATURED_PRODUCTS: ProductItem[] = [
     categoryLabel: 'Living Room',
     description: 'Comprehensive living arrangement with artisanal cane-backed armchairs, coffee table, and credenza.',
     image: showroomInteriorImg,
+    keywords: ['living', 'set', 'chairs', 'armchair', 'coffee table', 'cane', 'teak', 'credenza', 'lounge', 'sofa'],
   },
 ];
 
@@ -246,7 +255,24 @@ export const WHY_CHOOSE_US: WhyFeature[] = [
 
 export function buildWhatsAppLink(productName?: string): string {
   const text = productName
-    ? `Hello Haddi Furnitures, I would like to inquire about the ${productName}.`
+    ? `Hello Hadi Furnitures, I would like to inquire about the ${productName}.`
     : BUSINESS_INFO.defaultWhatsappMessage;
   return `${BUSINESS_INFO.whatsappBase}?text=${encodeURIComponent(text)}`;
+}
+
+export function searchProducts(query: string, categoryFilter: string = 'all'): ProductItem[] {
+  const q = query.trim().toLowerCase();
+  
+  return FEATURED_PRODUCTS.filter((product) => {
+    const matchesCategory = categoryFilter === 'all' || product.category === categoryFilter;
+    if (!matchesCategory) return false;
+    if (!q) return true;
+
+    const matchesName = product.name.toLowerCase().includes(q);
+    const matchesCategoryLabel = product.categoryLabel.toLowerCase().includes(q);
+    const matchesDescription = product.description.toLowerCase().includes(q);
+    const matchesKeywords = product.keywords.some((k) => k.toLowerCase().includes(q));
+
+    return matchesName || matchesCategoryLabel || matchesDescription || matchesKeywords;
+  });
 }

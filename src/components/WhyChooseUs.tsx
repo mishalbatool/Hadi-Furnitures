@@ -27,7 +27,7 @@ export default function WhyChooseUs() {
             Showroom Philosophy
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#F8F4EA] mb-4">
-            Why Choose Haddi Furnitures?
+            Why Choose Hadi Furnitures?
           </h2>
           <p className="text-sm sm:text-base text-[#E8DFD0]/80 font-light leading-relaxed">
             Every home tells a story. We create foundational furniture pieces designed to bring balance, lasting comfort, and understated sophistication.

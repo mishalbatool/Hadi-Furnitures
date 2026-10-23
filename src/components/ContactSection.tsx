@@ -22,7 +22,7 @@ export default function ContactSection() {
 
   const handleSendCustomWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
-    let text = `Hello Haddi Furnitures, I would like to inquire about: ${selectedInterest}.`;
+    let text = `Hello Hadi Furnitures, I would like to inquire about: ${selectedInterest}.`;
     if (customNote.trim()) {
       text += ` Additional note: ${customNote.trim()}`;
     }

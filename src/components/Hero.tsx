@@ -22,7 +22,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={heroBedroomImg}
-          alt="Luxury handcrafted solid wood bedroom furniture showcase by Haddi Furnitures"
+          alt="Luxury handcrafted solid wood bedroom furniture showcase by Hadi Furnitures"
           className="w-full h-full object-cover object-center scale-100 animate-in fade-in zoom-in-105 duration-1000 ease-out"
           loading="eager"
           referrerPolicy="no-referrer"

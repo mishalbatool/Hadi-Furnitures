@@ -25,7 +25,7 @@ export default function About() {
             </h2>
 
             <p className="text-base text-[#262824]/80 leading-relaxed font-light">
-              Haddi Furnitures is a premier furniture showroom situated on Chiniot Road in Chiniot, Punjab. Known as Pakistan’s heart of traditional wood craftsmanship, Chiniot holds an enduring legacy of woodworking artistry that inspires every piece we showcase.
+              Hadi Furnitures is a premier furniture showroom situated on Chiniot Road in Chiniot, Punjab. Known as Pakistan’s heart of traditional wood craftsmanship, Chiniot holds an enduring legacy of woodworking artistry that inspires every piece we showcase.
             </p>
 
             <p className="text-base text-[#262824]/80 leading-relaxed font-light">
@@ -78,7 +78,7 @@ export default function About() {
             <div className="relative rounded-3xl overflow-hidden border border-[#E8DFD0] shadow-xl group">
               <img
                 src={showroomInteriorImg}
-                alt="Inside Haddi Furnitures showroom on Chiniot Road displaying handcrafted furniture"
+                alt="Inside Hadi Furnitures showroom on Chiniot Road displaying handcrafted furniture"
                 className="w-full h-full object-cover object-center max-h-[520px] transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="lazy"
                 referrerPolicy="no-referrer"
@@ -93,7 +93,7 @@ export default function About() {
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-serif text-sm font-bold text-[#F8F4EA]">Visit Haddi Furnitures</h3>
+                      <h3 className="font-serif text-sm font-bold text-[#F8F4EA]">Visit Hadi Furnitures</h3>
                       <p className="text-xs text-[#E8DFD0]/80">{BUSINESS_INFO.address}</p>
                     </div>
                   </div>

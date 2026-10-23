@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Col 1: Brand & Identity */}
           <div className="space-y-4">
             <h3 className="font-serif text-2xl font-bold tracking-tight text-[#F8F4EA]">
-              Haddi Furnitures
+              Hadi Furnitures
             </h3>
             <p className="text-xs sm:text-sm text-[#E8DFD0]/75 font-light leading-relaxed">
               Crafted for Comfort. Designed for Living. Discover handcrafted furniture bringing warmth and timeless elegance to Pakistani homes.
@@ -121,7 +121,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#E8DFD0]/60">
-          <p>© {new Date().getFullYear()} Haddi Furnitures. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Hadi Furnitures. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <span className="text-[#C5A15B]/80 font-medium">Chiniot, Punjab, Pakistan</span>
             <button

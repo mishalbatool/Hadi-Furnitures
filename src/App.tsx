@@ -20,12 +20,33 @@ import { ProductItem } from './data/furnitureData';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [quickViewProduct, setQuickViewProduct] = useState<ProductItem | null>(null);
+
+  const handleSelectProductFromSearch = (product: ProductItem) => {
+    setQuickViewProduct(product);
+    const target = document.querySelector('#featured');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleClearSearch = () => {
+    setSearchQuery('');
+  };
+
+  const handleSelectCategory = (category: string) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F4EA] text-[#262824] antialiased">
-      {/* Top Navigation */}
-      <Header />
+      {/* Top Navigation with Responsive Search */}
+      <Header
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        onSelectProduct={handleSelectProductFromSearch}
+      />
 
       {/* Main Content Sections */}
       <main className="flex-1">
@@ -33,16 +54,23 @@ export default function App() {
         <Hero />
 
         {/* 2. Furniture Collections */}
-        <Collections onSelectCategory={setSelectedCategory} />
-
-        {/* 3. Featured Products Showcase */}
-        <FeaturedProducts
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-          onQuickView={setQuickViewProduct}
+        <Collections
+          onSelectCategory={(cat) => {
+            handleSelectCategory(cat);
+            handleClearSearch();
+          }}
         />
 
-        {/* 4. Why Choose Haddi Furnitures */}
+        {/* 3. Featured Products Showcase with Search Filter */}
+        <FeaturedProducts
+          selectedCategory={selectedCategory}
+          onSelectCategory={handleSelectCategory}
+          onQuickView={setQuickViewProduct}
+          searchQuery={searchQuery}
+          onClearSearch={handleClearSearch}
+        />
+
+        {/* 4. Why Choose Hadi Furnitures */}
         <WhyChooseUs />
 
         {/* 5. Craftsmanship Gallery */}

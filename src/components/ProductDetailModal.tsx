@@ -74,7 +74,7 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
           <div>
             <div className="flex items-center gap-2 text-xs text-[#C5A15B] font-semibold uppercase tracking-wider mb-2">
               <ShieldCheck className="w-4 h-4" />
-              <span>Haddi Furnitures Showroom</span>
+              <span>Hadi Furnitures Showroom</span>
             </div>
 
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#173D32] mb-3">
